@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## AddEvents
 
-> Generic AddEvents(ctx, xTOKEN)
+> Generic AddEvents(ctx, )
 
 
 
@@ -18,11 +18,7 @@ Add properties of events
 
 ### Required Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**xTOKEN** | **string**| string X-TOKEN (name or id) of the events | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -30,7 +26,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[okta_jwt](../README.md#okta_jwt)
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

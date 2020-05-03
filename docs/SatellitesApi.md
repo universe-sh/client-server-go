@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## CreateMetrics
 
-> Generic CreateMetrics(ctx, xTOKEN, cloud, satellite, pool)
+> Generic CreateMetrics(ctx, cloud, satellite, pool)
 
 
 
@@ -24,7 +24,6 @@ Create properties of metrics
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**xTOKEN** | **string**| string X-TOKEN (name or id) of the metrics | 
 **cloud** | **string**| string cloud (name or id) of the metrics | 
 **satellite** | **string**| string satellite (name or id) of the metrics | 
 **pool** | **string**| string pool (name or id) of the metrics | 
@@ -35,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[okta_jwt](../README.md#okta_jwt)
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -49,7 +48,7 @@ Name | Type | Description  | Notes
 
 ## ListPools
 
-> []Pool ListPools(ctx, xTOKEN, cloud, satellite)
+> []Pool ListPools(ctx, cloud, satellite)
 
 
 
@@ -61,7 +60,6 @@ List properties of pools
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**xTOKEN** | **string**| string X-TOKEN (name or id) of the pools | 
 **cloud** | **string**| string cloud (name or id) of the pools | 
 **satellite** | **string**| string satellite (name or id) of the pools | 
 
@@ -71,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[okta_jwt](../README.md#okta_jwt)
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -85,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## ReadSatellite
 
-> Satellite ReadSatellite(ctx, xTOKEN, cloud, satellite)
+> Satellite ReadSatellite(ctx, cloud, satellite)
 
 
 
@@ -97,7 +95,6 @@ Read properties of satellite
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**xTOKEN** | **string**| string X-TOKEN (name or id) of the satellite | 
 **cloud** | **string**| string cloud (name or id) of the satellite | 
 **satellite** | **string**| string satellite (name or id) of the satellite | 
 
@@ -107,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[okta_jwt](../README.md#okta_jwt)
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

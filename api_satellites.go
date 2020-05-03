@@ -30,13 +30,12 @@ type SatellitesApiService service
 CreateMetrics Method for CreateMetrics
 Create properties of metrics
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param xTOKEN string X-TOKEN (name or id) of the metrics
  * @param cloud string cloud (name or id) of the metrics
  * @param satellite string satellite (name or id) of the metrics
  * @param pool string pool (name or id) of the metrics
 @return Generic
 */
-func (a *SatellitesApiService) CreateMetrics(ctx _context.Context, xTOKEN string, cloud string, satellite string, pool string) (Generic, *_nethttp.Response, error) {
+func (a *SatellitesApiService) CreateMetrics(ctx _context.Context, cloud string, satellite string, pool string) (Generic, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -75,7 +74,18 @@ func (a *SatellitesApiService) CreateMetrics(ctx _context.Context, xTOKEN string
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarHeaderParams["X-TOKEN"] = parameterToString(xTOKEN, "")
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-TOKEN"] = key
+		}
+	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -126,12 +136,11 @@ func (a *SatellitesApiService) CreateMetrics(ctx _context.Context, xTOKEN string
 ListPools Method for ListPools
 List properties of pools
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param xTOKEN string X-TOKEN (name or id) of the pools
  * @param cloud string cloud (name or id) of the pools
  * @param satellite string satellite (name or id) of the pools
 @return []Pool
 */
-func (a *SatellitesApiService) ListPools(ctx _context.Context, xTOKEN string, cloud string, satellite string) ([]Pool, *_nethttp.Response, error) {
+func (a *SatellitesApiService) ListPools(ctx _context.Context, cloud string, satellite string) ([]Pool, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -168,7 +177,18 @@ func (a *SatellitesApiService) ListPools(ctx _context.Context, xTOKEN string, cl
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarHeaderParams["X-TOKEN"] = parameterToString(xTOKEN, "")
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-TOKEN"] = key
+		}
+	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -219,12 +239,11 @@ func (a *SatellitesApiService) ListPools(ctx _context.Context, xTOKEN string, cl
 ReadSatellite Method for ReadSatellite
 Read properties of satellite
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param xTOKEN string X-TOKEN (name or id) of the satellite
  * @param cloud string cloud (name or id) of the satellite
  * @param satellite string satellite (name or id) of the satellite
 @return Satellite
 */
-func (a *SatellitesApiService) ReadSatellite(ctx _context.Context, xTOKEN string, cloud string, satellite string) (Satellite, *_nethttp.Response, error) {
+func (a *SatellitesApiService) ReadSatellite(ctx _context.Context, cloud string, satellite string) (Satellite, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -261,7 +280,18 @@ func (a *SatellitesApiService) ReadSatellite(ctx _context.Context, xTOKEN string
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarHeaderParams["X-TOKEN"] = parameterToString(xTOKEN, "")
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-TOKEN"] = key
+		}
+	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

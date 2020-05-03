@@ -29,10 +29,9 @@ type EventsApiService service
 AddEvents Method for AddEvents
 Add properties of events
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param xTOKEN string X-TOKEN (name or id) of the events
 @return Generic
 */
-func (a *EventsApiService) AddEvents(ctx _context.Context, xTOKEN string) (Generic, *_nethttp.Response, error) {
+func (a *EventsApiService) AddEvents(ctx _context.Context) (Generic, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -65,7 +64,18 @@ func (a *EventsApiService) AddEvents(ctx _context.Context, xTOKEN string) (Gener
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	localVarHeaderParams["X-TOKEN"] = parameterToString(xTOKEN, "")
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-TOKEN"] = key
+		}
+	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
